@@ -74,7 +74,7 @@ $(function() {
             });
         });
         it('is not the same', function() {
-            expect($('.feed').html()).not.toEqual(originalFeed)
+            expect($('.feed').html()).not.toEqual(originalFeed);
 
 
         });
