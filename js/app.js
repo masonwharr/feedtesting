@@ -132,7 +132,6 @@ $(function() {
         $('body').addClass('menu-hidden');
         loadFeed(item.data('id'));
         return false;
-test();
     });
 
     /* When the menu icon is clicked on, we need to toggle a class
@@ -148,8 +147,8 @@ test();
     console.log(menu);
 }
 else{
-    var menuClick = 2;
+    menuClick = 2;
 }
-    });;
+    });
 
 }());
