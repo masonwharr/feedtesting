@@ -141,14 +141,7 @@ $(function() {
     menuIcon.on('click', function() {
         $('body').toggleClass('menu-hidden');
         $('body').toggleClass('menuWasHidden');
-        if ($('body')[0].className == "menu-hidden"){
-    var menuClick = 1;
-    console.log('yaay');
-    console.log(menu);
-}
-else{
-    menuClick = 2;
-}
+
     });
 
 }());
