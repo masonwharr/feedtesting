@@ -132,6 +132,7 @@ $(function() {
         $('body').addClass('menu-hidden');
         loadFeed(item.data('id'));
         return false;
+test();
     });
 
     /* When the menu icon is clicked on, we need to toggle a class
@@ -141,7 +142,7 @@ $(function() {
     menuIcon.on('click', function() {
         $('body').toggleClass('menu-hidden');
         $('body').toggleClass('menuWasHidden');
-
-    });
+   
+    });;
 
 }());
