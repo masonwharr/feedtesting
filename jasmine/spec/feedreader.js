@@ -8,7 +8,7 @@
  * to ensure they don't run until the DOM is ready.
  */
 $(function() {
-
+//Checks feeds arent empty
     describe('RSS Feeds', function() {
  
         it('are defined', function() {
@@ -21,21 +21,41 @@ $(function() {
         it('are not empty', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds).not.toEqual(jasmine.objectContaining({
-                name: 'test',
+                name: 'CSS Tricks',
             }));
-            console.log(allFeeds);
-            expect(allFeeds[0].name).not.toEqual('');
-            expect(allFeeds[1].name).not.toEqual('');
-            expect(allFeeds[2].name).not.toEqual('');
-            expect(allFeeds[3].name).not.toEqual('');
-            expect(allFeeds[0].url).not.toEqual('');
-            expect(allFeeds[1].url).not.toEqual('');
-            expect(allFeeds[2].url).not.toEqual('');
-            expect(allFeeds[3].url).not.toEqual('');
-        });
+            function testfeed(){
+        for(var i = 0; i < allFeeds.length; i++) {
+  var nameValue = "";
+  var urlValue = "";
+  var nameNotEmpty = false;
+  var urlNotEmpty = false;
+    if (allFeeds[i].name == nameValue) {
+        feedObject = allFeeds[i];
+   nameNotEmpty = false;
+      
+    }        
+    else {
+        nameNotEmpty = true;
+    }
+
+    if (allFeeds[i].url == urlValue) {
+        feedObject = allFeeds[i];
+  urlNotEmpty = false;
+      
+    }        
+    else {
+        urlNotEmpty = true;
+    }
+    expect(urlNotEmpty).toEqual(true);
+    expect(nameNotEmpty).toEqual(true);
+}
+};
+testfeed();
+   
 
     });
-
+});
+    // Checks that menu is hidden from start, and not on click
     describe('The Menu', function() {
         it('is hidden', function() {
             expect(menu).toEqual(1);
@@ -44,14 +64,22 @@ $(function() {
             //Check if it's class is menu-hidden on load
             expect(holder).toEqual('menu-hidden');
             $('.menu-icon-link').click();
-            expect(document.getElementsByTagName("body")[0].className).toEqual("menuWasHidden");
+            var notHidden = $('.menuWasHidden')[0].tagName;
+            
+            console.log(notHidden);
+           // Checks tag that is on is body
+           expect(notHidden).toEqual('BODY');
             $('.menu-icon-link').click();
-            expect(document.getElementsByTagName("body")[0].className).toEqual("menu-hidden");
+
+           var hidden =  $('.menu-hidden')[0].tagName;
+            console.log(hidden);
+            // Checks tag that is on is body
+              expect(hidden).toEqual('BODY');
         });
     });
 
 
-
+// Checks if entries are put in feed container
     describe('Initial Entries', function() {
         beforeEach(function(done) {
             loadFeed(0, done);
@@ -74,7 +102,7 @@ $(function() {
             });
         });
         it('is not the same', function() {
-            expect($('.feed').html()).not.toEqual(originalFeed);
+            expect($('.feed').html()).not.toEqual(originalFeed)
 
 
         });
